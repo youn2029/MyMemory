@@ -173,25 +173,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Td3-Hj-OhH">
-                                <rect key="frame" x="16" y="80" width="343" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="95C-GA-YXY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5W-te-Sod">
-                                <rect key="frame" x="16" y="157" width="250" height="250"/>
+                                <rect key="frame" x="16" y="117" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Yga-cv-3BQ"/>
                                     <constraint firstAttribute="height" constant="250" id="gjB-4O-OP9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytw-jz-WbS">
-                                <rect key="frame" x="16" y="121" width="343" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="16" y="79" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -200,12 +191,9 @@
                         <constraints>
                             <constraint firstItem="ytw-jz-WbS" firstAttribute="leading" secondItem="LRq-Bv-iUY" secondAttribute="leadingMargin" id="2mm-4E-txe"/>
                             <constraint firstItem="l5W-te-Sod" firstAttribute="leading" secondItem="LRq-Bv-iUY" secondAttribute="leadingMargin" id="5cb-Zd-jCk"/>
-                            <constraint firstItem="Td3-Hj-OhH" firstAttribute="trailing" secondItem="LRq-Bv-iUY" secondAttribute="trailingMargin" id="5mw-Kw-Snm"/>
-                            <constraint firstItem="Td3-Hj-OhH" firstAttribute="top" secondItem="kcJ-Gk-zEz" secondAttribute="top" constant="16" id="6d4-my-IMa"/>
+                            <constraint firstItem="ytw-jz-WbS" firstAttribute="top" secondItem="kcJ-Gk-zEz" secondAttribute="top" constant="15" id="BQo-RU-RXp"/>
                             <constraint firstItem="l5W-te-Sod" firstAttribute="top" secondItem="ytw-jz-WbS" secondAttribute="bottom" constant="20" id="XWn-EM-QwO"/>
-                            <constraint firstItem="ytw-jz-WbS" firstAttribute="top" secondItem="Td3-Hj-OhH" secondAttribute="bottom" constant="20" id="j7H-mB-X2V"/>
                             <constraint firstItem="ytw-jz-WbS" firstAttribute="trailing" secondItem="LRq-Bv-iUY" secondAttribute="trailingMargin" id="sPr-xU-BRV"/>
-                            <constraint firstItem="Td3-Hj-OhH" firstAttribute="leading" secondItem="LRq-Bv-iUY" secondAttribute="leadingMargin" id="zBA-P4-NrS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kcJ-Gk-zEz"/>
                     </view>
@@ -226,7 +214,6 @@
                     <connections>
                         <outlet property="contents" destination="ytw-jz-WbS" id="Slf-0g-6Zk"/>
                         <outlet property="img" destination="l5W-te-Sod" id="rb6-2f-o1I"/>
-                        <outlet property="subject" destination="Td3-Hj-OhH" id="qGf-1K-pQK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPs-p6-CQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -285,9 +272,11 @@
                     <connections>
                         <outlet property="contents" destination="QP1-3Q-PAq" id="Oni-Gu-3Rn"/>
                         <outlet property="preview" destination="e5t-b6-Ryo" id="fws-La-GdX"/>
+                        <segue destination="g3Y-IX-ZOA" kind="unwind" identifier="unwind_list" unwindAction="gotoMemoList:" id="Ns0-bl-T4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx0-6n-rF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="g3Y-IX-ZOA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1495" y="862"/>
         </scene>

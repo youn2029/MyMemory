@@ -17,33 +17,29 @@ class MemoListVC: UITableViewController {
     override func viewDidLoad() {
         
         let memo = MemoData()
-//        memo.memoIdx = 0
         memo.title = "워크샵 준비 물품들"
-        memo.contents = "라면, 양파, 감자, 파, 계란, 세제류, 생수, 탄산수, 워셔액, 비누, 치약, 칫솔, 수건, 라면, 양파, 감자, 파, 계란, 세제류, 생수, 탄산수, 워셔액, 비누, 치약, 칫솔, 수건"
+        memo.contents = "워크샵 준비 물품들\n\n라면, 양파, 감자, 파, 계란, 세제류, 생수, 탄산수, 워셔액, 비누, 치약, 칫솔, 수건, 라면, 양파, 감자, 파, 계란, 세제류, 생수, 탄산수, 워셔액, 비누, 치약, 칫솔, 수건"
         memo.regdate = Date()
         
         appDelegate.memolist.append(memo)
         
         let memo1 = MemoData()
-//        memo1.memoIdx = 1
         memo1.title = "워크샵 출발 전 챙겨야 할 것들"
-        memo1.contents = "이동중 섭취물품들, 인원 체크 및 예약장소 재확인"
+        memo1.contents = "워크샵 출발 전 챙겨야 할 것들\n\n이동중 섭취물품들, 인원 체크 및 예약장소 재확인"
         memo1.regdate = Date(timeIntervalSinceNow: 3000)
         
         appDelegate.memolist.append(memo1)
         
         let memo2 = MemoData()
-//        memo2.memoIdx = 2
         memo2.title = "출발 전 체크 항목들"
-        memo2.contents = "인원별 탑승 완료 여부 확인 및 각 이동 차량 점검"
+        memo2.contents = "출발 전 체크 항목들\n\n인원별 탑승 완료 여부 확인 및 각 이동 차량 점검"
         memo2.regdate = Date(timeIntervalSinceNow: 4000)
         
         appDelegate.memolist.append(memo2)
         
         let memo3 = MemoData()
-//        memo3.memoIdx = 3
         memo3.title = "워크샵 결과 정리"
-        memo3.contents = "부족했던 점 : 워크샵 장소 이동 사이에 간격이 너무 길어 사람들의 주의가 분산됨"
+        memo3.contents = "워크샵 결과 정리\n\n부족했던 점 : 워크샵 장소 이동 사이에 간격이 너무 길어 사람들의 주의가 분산됨"
         memo3.regdate = Date(timeIntervalSinceNow: 8000)
         
         appDelegate.memolist.append(memo3)        
@@ -53,10 +49,6 @@ class MemoListVC: UITableViewController {
     // 화면이 출력될 때마다 호출되는 메소드 (화면에 표시 전)
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        
-        for row in appDelegate.memolist {
-            NSLog("index = \(row.memoIdx), title = \(row.title)")
-        }
     }
     
     // 화면이 출력될 때마다 호출되는 메소드 (화면에 표시 후)
@@ -77,13 +69,17 @@ class MemoListVC: UITableViewController {
         
         let cellIdentifier = memoObj.image == nil ? "memoCell" : "memoCellWithImage"
         
-        // 에필로그 2 : 캐스팅 오류 처리
+        // 캐스팅 오류 처리
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier ) as? MemoCell else {
             return UITableViewCell()
         }
         
+        let titleLengh = memoObj.title!.count
+        
+        let content = (memoObj.contents! as NSString).substring(from: titleLengh)
+        
         cell.subject?.text = memoObj.title
-        cell.contents?.text = memoObj.contents
+        cell.contents?.text = content
         cell.img?.image = memoObj.image
             
         let dateFormatter = DateFormatter()
@@ -112,7 +108,7 @@ class MemoListVC: UITableViewController {
 //        vc.param = row
 //        self.navigationController?.pushViewController(vc, animated: true)
         
-        // 에필로그 3 : 메뉴얼 세그 이용
+        // 메뉴얼 세그 이용
         self.performSegue(withIdentifier: "read_sg", sender: self)
     }
     
@@ -128,7 +124,10 @@ class MemoListVC: UITableViewController {
             
             (segue.destination as! MemoReadVC).param = memoObj
         }
-        
+    }
+    
+    // MemoList로 오는 이정표
+    @IBAction func gotoMemoList(_ segue: UIStoryboardSegue){        
     }
     
 }

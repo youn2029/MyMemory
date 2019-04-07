@@ -40,6 +40,9 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             appDelegate.memolist[idx].title = self.subject
             appDelegate.memolist[idx].regdate = Date()
             
+            // 작성폼 화면을 종료하고, 이전 화면으로 되돌아간다.
+            performSegue(withIdentifier: "unwind_list", sender: self)
+            
             
         } else {
             // MemoData 객체를 생성하고, 데이터를 담는다
@@ -49,10 +52,7 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             data.contents = self.contents.text  // 메모내용
             data.image = self.preview.image     // 이미지
             data.regdate = Date()               // 작성일
-            
-//            let endIndex = appDelegate.memolist.endIndex - 1
-//            data.memoIdx = appDelegate.memolist[endIndex].memoIdx! + 1
-            
+                        
             appDelegate.memolist.append(data)   // memolist는 구조체이다.
             
             // 작성폼 화면을 종료하고, 이전 화면으로 되돌아간다.
@@ -65,7 +65,7 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     // 카메라 버튼 이벤트
     @IBAction func pick(_ sender: Any) {
         
-        /// 에필로그 1 : 카메라, 저장앨범, 사진 라이브러리를 이용 가능하게 하라
+        /// 카메라, 저장앨범, 사진 라이브러리를 이용 가능하게 하라
         
         // 이미지 피커 인스턴스를 생성
         let picker = UIImagePickerController()
@@ -158,8 +158,6 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.contents.delegate = self
         
         if let _ = self.param {
-            
-            //let contents = self.param!.title! + "\n\n" + self.param!.contents!
             
             self.contents.text = self.param!.contents
             self.preview.image = self.param!.image

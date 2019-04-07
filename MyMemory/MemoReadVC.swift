@@ -11,13 +11,11 @@ import UIKit
 class MemoReadVC: UIViewController {
 
     var param : MemoData?               // 데이터를 저장하는 변수
-    @IBOutlet var subject: UILabel!     // 제목
     @IBOutlet var contents: UILabel!    // 내용
     @IBOutlet var img: UIImageView!     // 이미지
     
     override func viewDidLoad() {
         
-        self.subject.text = param?.title
         self.contents.text = param?.contents
         self.img.image = param?.image
         
