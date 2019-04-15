@@ -23,9 +23,7 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         guard self.contents.text.isEmpty == false else {
             
             // 내용이 비어 있을 때 처리
-            let alert = UIAlertController(title: nil, message: "내용을 입력해주세요", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .cancel))
-            self.present(alert, animated: false)
+            alertError("내용을 입력해주세요")
                 
             return
         }
@@ -195,8 +193,22 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     // Error alert
     func alertError(_ msg: String) {
         
-        let alert = UIAlertController(title: "오류", message: msg, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .cancel))
+        
+        // contentViewController 에 이미지 추가 - 커스터마이징
+        let contentView = UIViewController()
+        
+        let image = UIImage(named: "warning-icon-60")
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: (image?.size.width)!, height: (image?.size.height)!)
+        
+        contentView.view.addSubview(imageView)
+        contentView.preferredContentSize = CGSize(width: (image?.size.width)!, height: (image?.size.height)!+10)
+        
+        // alert에 contentViewController 추가
+        alert.setValue(contentView, forKey: "contentViewController")
+        
         self.present(alert, animated: false)
     }
 
