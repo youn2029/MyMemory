@@ -42,7 +42,25 @@ class MemoListVC: UITableViewController {
         memo3.contents = "워크샵 결과 정리\n\n부족했던 점 : 워크샵 장소 이동 사이에 간격이 너무 길어 사람들의 주의가 분산됨"
         memo3.regdate = Date(timeIntervalSinceNow: 8000)
         
-        appDelegate.memolist.append(memo3)        
+        appDelegate.memolist.append(memo3)
+        
+        // SWRevealViewController 라이브러리의 revealViewController 객체를 읽어온다
+        if let revealVC = self.revealViewController() {
+            
+            // 사이드 바 버튼
+            let btnSideBar = UIBarButtonItem(
+                image: UIImage(named: "sidemenu.png"),
+                style: .plain,
+                target: revealVC,
+                action: #selector(revealVC.revealToggle(_:)))
+            
+            // 왼쪽 바 버튼 아이템에 추가
+            self.navigationItem.leftBarButtonItem = btnSideBar
+            
+            // 제스처 추가
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+        
         
     }
     
