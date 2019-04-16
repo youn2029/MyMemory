@@ -32,6 +32,7 @@
 		4E84402A226619E60072D3A0 /* sidemenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E844021226619E60072D3A0 /* sidemenu.png */; };
 		4E84402B226619E60072D3A0 /* icon04.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E844022226619E60072D3A0 /* icon04.png */; };
 		4E84402C226619E60072D3A0 /* icon06.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E844023226619E60072D3A0 /* icon06.png */; };
+		4E84402E226621ED0072D3A0 /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E84402D226621ED0072D3A0 /* SideBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		4E844021226619E60072D3A0 /* sidemenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidemenu.png; sourceTree = "<group>"; };
 		4E844022226619E60072D3A0 /* icon04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon04.png; sourceTree = "<group>"; };
 		4E844023226619E60072D3A0 /* icon06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon06.png; sourceTree = "<group>"; };
+		4E84402D226621ED0072D3A0 /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				4E8090D7223268C9001BFB40 /* Info.plist */,
 				4E8090CF223268C9001BFB40 /* MyMemory.xcdatamodeld */,
 				4E00C71B2234EDE80049F60F /* MemoListVC.swift */,
+				4E84402D226621ED0072D3A0 /* SideBarVC.swift */,
 				4E00C71D2234EE190049F60F /* MemoFormVC.swift */,
 				4E00C71F2234EE2A0049F60F /* MemoReadVC.swift */,
 				4E18CCC822648A650091F9E0 /* CSLogButton.swift */,
@@ -227,6 +230,7 @@
 				4E00C7202234EE2A0049F60F /* MemoReadVC.swift in Sources */,
 				4E8090D1223268C9001BFB40 /* MyMemory.xcdatamodeld in Sources */,
 				4E00C7242235189B0049F60F /* MemoData.swift in Sources */,
+				4E84402E226621ED0072D3A0 /* SideBarVC.swift in Sources */,
 				4E84401A226619890072D3A0 /* SWRevealViewController.m in Sources */,
 				4E00C71E2234EE190049F60F /* MemoFormVC.swift in Sources */,
 				4E8090C9223268C9001BFB40 /* AppDelegate.swift in Sources */,

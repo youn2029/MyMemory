@@ -233,7 +233,7 @@
         <!--사이드 바-->
         <scene sceneID="Js3-Pn-Bxp">
             <objects>
-                <tableViewController id="K12-s1-4HS" userLabel="사이드 바" sceneMemberID="viewController">
+                <tableViewController id="K12-s1-4HS" userLabel="사이드 바" customClass="SideBarVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hQm-zN-jTn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
