@@ -93,7 +93,7 @@ class SideBarVC: UITableViewController {
         if indexPath.row == 0 {
             
             // 메모 작성 뷰 컨트롤러 가져오기
-            let memoFrom = self.storyboard?.instantiateViewController(withIdentifier: "MemoFrom")
+            let memoFrom = self.storyboard?.instantiateViewController(withIdentifier: "MemoForm")
             
             // 프론트 컨트롤러의 참조 정보를 읽어와 화면 전환
             let target = self.revealViewController()?.frontViewController as! UINavigationController
