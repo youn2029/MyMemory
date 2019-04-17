@@ -38,8 +38,8 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             appDelegate.memolist[idx].title = self.subject
             appDelegate.memolist[idx].regdate = Date()
             
-            // 작성폼 화면을 종료하고, 이전 화면으로 되돌아간다.
-            performSegue(withIdentifier: "unwind_list", sender: self)
+            // 작성폼 화면을 종료하고, 목록화면으로
+            performSegue(withIdentifier: "unwind_list", sender: self)          
             
             
         } else {
@@ -56,7 +56,6 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             // 작성폼 화면을 종료하고, 이전 화면으로 되돌아간다.
             _ = self.navigationController?.popViewController(animated: true)
         }
-        
        
     }
     
@@ -155,13 +154,6 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         self.contents.delegate = self
         
-        if let _ = self.param {
-            
-            self.contents.text = self.param!.contents
-            self.preview.image = self.param!.image
-            
-        }
-        
         // view의 배경 이미지 설정
         let bgImage = UIImage(named: "memo-background")!
         self.view.backgroundColor = UIColor(patternImage: bgImage)
@@ -178,6 +170,14 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
                                                           attributes: [NSAttributedString.Key.paragraphStyle : style])
         self.contents.text = ""
         
+        if let _ = self.param {
+            
+            self.navigationItem.title = "메모 수정"
+            self.contents.text = self.param!.contents
+            self.preview.image = self.param!.image
+            
+        }
+        
     }
     
     // 화면 전체를 터치했을 때 호출되는 메소드
@@ -190,7 +190,7 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         }
     }
 
-    // Error alert
+    // Error alertn
     func alertError(_ msg: String) {
         
         let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)

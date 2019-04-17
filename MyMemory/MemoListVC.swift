@@ -69,11 +69,6 @@ class MemoListVC: UITableViewController {
         self.tableView.reloadData()
     }
     
-    // 화면이 출력될 때마다 호출되는 메소드 (화면에 표시 후)
-    override func viewDidAppear(_ animated: Bool) {
-//        self.tableView.reloadData()
-    }
-
     // 테이블 셀의 갯수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

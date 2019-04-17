@@ -101,6 +101,16 @@ class SideBarVC: UITableViewController {
             
             // 사이드 바 닫기
             self.revealViewController()?.revealToggle(self)
+        } else if indexPath.row == 5 {      // 계정 관리 메뉴를 선택했을 때
+            
+            let profile = self.storyboard?.instantiateViewController(withIdentifier: "_Profile")
+            
+            self.present(profile!, animated: true) {
+                
+                // 사이트 바 닫기
+                self.revealViewController()?.revealToggle(self)
+            }
+            
         }
     }
 }
