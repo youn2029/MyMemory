@@ -42,7 +42,7 @@ class SideBarVC: UITableViewController {
         self.nameLabel.font = .boldSystemFont(ofSize: 15)
         
         // 이메일 설정
-        self.emailLabel.frame = CGRect(x: 70, y: 30, width: 100, height: 30)
+        self.emailLabel.frame = CGRect(x: 70, y: 30, width: 150, height: 30)
         self.emailLabel.text = "youn2029@naver.com"
         self.emailLabel.textColor = .white
         self.emailLabel.backgroundColor = .clear
@@ -85,5 +85,22 @@ class SideBarVC: UITableViewController {
         cell.textLabel?.font = .systemFont(ofSize: 14)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 새글 작성하기 버튼을 클릭했을때
+        if indexPath.row == 0 {
+            
+            // 메모 작성 뷰 컨트롤러 가져오기
+            let memoFrom = self.storyboard?.instantiateViewController(withIdentifier: "MemoFrom")
+            
+            // 프론트 컨트롤러의 참조 정보를 읽어와 화면 전환
+            let target = self.revealViewController()?.frontViewController as! UINavigationController
+            target.pushViewController(memoFrom!, animated: true)
+            
+            // 사이드 바 닫기
+            self.revealViewController()?.revealToggle(self)
+        }
     }
 }

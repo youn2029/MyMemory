@@ -261,7 +261,7 @@
         <!--메모 작성-->
         <scene sceneID="ohd-y6-QAZ">
             <objects>
-                <viewController title="메모 작성" id="U28-Gq-g1G" customClass="MemoFormVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoForm" title="메모 작성" id="U28-Gq-g1G" customClass="MemoFormVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rJd-Ix-RaL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
