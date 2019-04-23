@@ -49,8 +49,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             // 로그인되어 있지 않다면 로그인 창을 띄워준다
             self.doLogin(self.tv)
         }
-    }
-    
+    }    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -200,7 +199,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         self.present(alert, animated: false, completion: nil)
     }
     
-    // imagePicker
+    // imagePicker 실행 메소드
     func imgPicker(_ source: UIImagePickerController.SourceType){
         let picker = UIImagePickerController()
         picker.sourceType = source
@@ -242,6 +241,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         self.present(alert, animated: true, completion: nil)
     }
     
+    // 이미지 피커 컨트롤러에서 선택된 이미지 저장
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {

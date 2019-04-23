@@ -10,6 +10,9 @@ import UIKit
 
 class SideBarVC: UITableViewController {
     
+    // 개정 관리 매니저
+    let uinfo = UserInfoManager()
+    
     // 타이틀 배열
     let titles = ["새글 작성하기", "친구 새글", "달력으로 보기", "공지사항", "통계", "계정 관리"]
     
@@ -36,22 +39,18 @@ class SideBarVC: UITableViewController {
         
         // 이름 설정
         self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
-        self.nameLabel.text = "성현이 똥꼬"
         self.nameLabel.textColor = .white
         self.nameLabel.backgroundColor = .clear
         self.nameLabel.font = .boldSystemFont(ofSize: 15)
         
         // 이메일 설정
         self.emailLabel.frame = CGRect(x: 70, y: 30, width: 150, height: 30)
-        self.emailLabel.text = "youn2029@naver.com"
         self.emailLabel.textColor = .white
         self.emailLabel.backgroundColor = .clear
         self.emailLabel.font = .boldSystemFont(ofSize: 11)
         
         // 프로필 설정
-        let defaultProfile = UIImage(named: "account.jpg")
         self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
-        self.profileImage.image = defaultProfile
         
         // 프로필 사진 둥글게 설정
         self.profileImage.layer.cornerRadius = (self.profileImage.frame.width / 2)      // 반원 형태로 바운딩
@@ -65,6 +64,12 @@ class SideBarVC: UITableViewController {
         
         // 테이블 뷰에 헤더 뷰 추가
         self.tableView.tableHeaderView = headerView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.nameLabel.text = self.uinfo.name ?? "Guest"
+        self.emailLabel.text = self.uinfo.account ?? ""
+        self.profileImage.image = self.uinfo.profile
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
