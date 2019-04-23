@@ -122,6 +122,7 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         sheet.addAction(cameraAction)
         sheet.addAction(albumAction)
         sheet.addAction(libraryAction)
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(sheet, animated: false)
         
