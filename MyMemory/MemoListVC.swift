@@ -60,12 +60,18 @@ class MemoListVC: UITableViewController {
             // 제스처 추가
             self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
         }
-        
-        
     }
     
     // 화면이 출력될 때마다 호출되는 메소드 (화면에 표시 전)
     override func viewWillAppear(_ animated: Bool) {
+        
+        let ud = UserDefaults.standard
+        if ud.bool(forKey: UserInfoKey.tutorial) == false {
+            let vc = self.instanceTutorialVC(name: "MasterVC")
+            self.present(vc!, animated: false, completion: nil)
+            return
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -105,21 +111,6 @@ class MemoListVC: UITableViewController {
     
     // 테이블 셀을 선택했을 때 호출되는 메소드
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        // 스토리보드의 ID를 이용
-//        // memolist 배열에서 선택된 행에 맞는 데이터를 꺼낸다
-//        let row = self.appDelegate.memolist[indexPath.row]
-//
-//        // 상세화면의 인스턴스를 생성한다
-//        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else {
-//
-//            // 해당 vc가 없으면
-//            return
-//        }
-//
-//        // 값을 전달한 다음 상세 화면으로 이동한다
-//        vc.param = row
-//        self.navigationController?.pushViewController(vc, animated: true)
         
         // 메뉴얼 세그 이용
         self.performSegue(withIdentifier: "read_sg", sender: self)
